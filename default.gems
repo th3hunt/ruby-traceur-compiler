@@ -1,0 +1,12 @@
+# default.gems generated gem export file. Note that any env variable settings will be missing. Append these after using a ';' field separator
+
+diff-lcs -v1.2.4
+execjs -v2.0.1
+libv8 -v3.16.14.3
+ref -v1.0.5
+rspec -v2.14.1
+rspec-core -v2.14.5
+rspec-expectations -v2.14.2
+rspec-mocks -v2.14.3
+therubyracer -v0.12.0
+traceur-compiler-source -v0.1.1

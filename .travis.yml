@@ -1,0 +1,9 @@
+script: 'rake'
+before_script:
+    - 'test -s "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"'
+    - 'test -s default.gems && rvm gemset import default.gems'
+rvm:
+    - 2.0.0
+notifications:
+    email:
+        - jakub@jakub.cc
