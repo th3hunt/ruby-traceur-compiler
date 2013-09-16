@@ -2,6 +2,8 @@ Gem::Specification.new do |spec|
 	spec.name = 'traceur-compiler'
 	spec.version = '0.1.0'
 	spec.summary = 'Traceur compiler'
+	spec.license = 'New BSD license'
+	spec.homepage = 'https://github.com/jakub-/ruby-traceur-compiler'
 	
 	spec.author = 'Jakub'
 	spec.email = 'jakub@jakub.cc'
