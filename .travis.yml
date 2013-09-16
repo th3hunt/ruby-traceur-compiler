@@ -1,7 +1,7 @@
 script: 'rake'
 before_script:
     - 'test -s "$HOME/.rvm/scripts/rvm" && source "$HOME/.rvm/scripts/rvm"'
-    - 'test -s default.gems && rvm gemset import default.gems'
+    - 'test -s .gems && rvm gemset import .gems'
 rvm:
     - 2.0.0
 notifications:
