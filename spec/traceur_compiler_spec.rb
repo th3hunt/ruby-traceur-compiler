@@ -16,5 +16,36 @@ describe TraceurCompiler do
 				}.to raise_error
 			end
 		end
+		context 'for ECMAScript 6 input with experimental features' do
+			let(:source) {
+				<<-source
+					function foo() {
+						var x;
+						await x = bar();
+					}
+				source
+			}
+			context 'with experimental features enabled' do
+				it 'compiles successfully' do
+					expect(
+						TraceurCompiler.compile(source, :experimental => true)
+					).to be_a(String)
+				end
+			end
+			context 'with experimental features disabled' do
+				it 'throws an exception' do
+					expect {
+						TraceurCompiler.compile(source, :experimental => false)
+					}.to raise_error
+				end
+			end
+			context 'with no options passed in' do
+				it 'throws an exception' do
+					expect {
+						TraceurCompiler.compile(source)
+					}.to raise_error
+				end
+			end
+		end
 	end
 end

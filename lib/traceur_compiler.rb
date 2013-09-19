@@ -26,7 +26,11 @@ module TraceurCompiler
 				};
 			stubs
 			@context.exec <<-compile
-				compile = function (contents) {
+				compile = function (contents, options) {
+					for (var key in options) {
+						traceur.options[key] = options[key];
+					}
+
 					var project = new traceur.semantics.symbols.Project(''),
 						reporter = new traceur.util.ErrorReporter();
 					reporter.reportMessageInternal = function (location, format, args) {
@@ -43,9 +47,9 @@ module TraceurCompiler
 	end
 
 	class << self
-		def compile(script)
+		def compile(script, options = {})
 			script = script.read if script.respond_to?(:read)
-			Source.context.call("compile", script)
+			Source.context.call("compile", script, options)
 		end
 	end
 end
