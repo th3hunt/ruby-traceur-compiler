@@ -32,6 +32,13 @@ describe TraceurCompiler do
 					).to be_a(String)
 				end
 			end
+			context 'with a specific underscore-style option passed in' do
+				it 'compiles successfully' do
+					expect(
+						TraceurCompiler.compile(source, :deferred_functions => true)
+					).to be_a(String)
+				end
+			end
 			context 'with experimental features disabled' do
 				it 'throws an exception' do
 					expect {

@@ -1,3 +1,4 @@
+require 'active_support/core_ext/string/inflections'
 require 'execjs'
 require 'traceur_compiler/source'
 
@@ -49,7 +50,10 @@ module TraceurCompiler
 	class << self
 		def compile(script, options = {})
 			script = script.read if script.respond_to?(:read)
-			Source.context.call("compile", script, options)
+			compile_options = Hash[ *options.map { |key, value|
+				[key.to_s.camelize(:lower), value]
+			}.flatten ]
+			Source.context.call("compile", script, compile_options)
 		end
 	end
 end
